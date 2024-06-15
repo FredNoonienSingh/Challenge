@@ -1,0 +1,5 @@
+.venv/
+.python-version
+python-car-management-api-challenge
+__pycache__
+
