@@ -1,6 +1,9 @@
 .venv/
 .python-version
 python-car-management-api-challenge
+.DS_Store
 __pycache__
 .flaskenv
 .env
+instance/
+database.db

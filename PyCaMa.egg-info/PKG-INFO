@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: PyCaMa
+Version: 1.0
+Summary: Python Car Management RESTful API Coding Challenge
+Home-page: http://www.foopackage.example/
+Author: Frederic Baumeister
+Author-email: 
+License: MIT
+Requires-Dist: Flask
+Requires-Dist: Flask-SQLAlchemy
