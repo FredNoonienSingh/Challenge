@@ -5,3 +5,5 @@ python-car-management-api-challenge
 __pycache__
 .flaskenv
 .env
+instance/
+database.db
