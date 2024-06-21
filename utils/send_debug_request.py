@@ -5,42 +5,56 @@
 import requests
 import time
 
-api_url = "http://127.0.0.1:8080/cars/"  # Replace with the actual API endpoint URL
+api_url:dict = "http://127.0.0.1:8080/cars/"  # Replace with the actual API endpoint URL
 
-get_data = {
-    "id": None,
-    "offset": None,
-    "limit": None
+get_single:dict = {
+    'id': 57
 }
 
-post_data = {
+get_data:dict = {
+    "offset": None,
+    "limit": 12, 
+    "filter":{
+        "year": {
+            "gt": 2000
+            },
+        "name": {
+            "color": "red"
+        }
+    }
+}
+
+post_data:dict = {
     "model": "R8", 
     "make": "Audi", 
-    "year": 2029,
+    "year": 2024,
     "color": "red", 
     "price": 10000.23
 }
 
-del_data = {
-    'id':56,
+del_data:dict = {
+    'id':52,
 }
 
-update_data = {
+update_data:dict = {
     'id': 129,
     'model':"updated", 
     'make': "updated", 
     'color': "updated",
     'year': 1999, 
-    'price': 1232232
+    'price': 12322.32
 }
 
-headers = {'Content-Type': 'application/json'}
-methods = (
+headers:dict = {'Content-Type': 'application/json'}
+methods:dict = (
+    (requests.get, get_single), 
     (requests.get, get_data), 
     (requests.post, post_data), 
+    (requests.put, update_data),
     (requests.delete, del_data), 
-    (requests.put, update_data)
+    (requests.patch, update_data)
            )
+
 def test():
     for meth in methods:
         time.sleep(0.2)
@@ -50,6 +64,8 @@ def test():
         except Exception as e: 
             print(e)
 
-for i in range(25):
+i = 0
+while True:
     print(f"test run {i+1}")
+    i+=1
     test()

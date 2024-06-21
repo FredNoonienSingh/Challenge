@@ -2,16 +2,13 @@
 # date   :   15th june 2024 
 # Project:   Python Car Management RESTful API Coding Challenge
 
+from flask import Flask
 from typing import List
 from collections.abc import Callable     #imported for typing, typing.Callable is deprecated since 3.9
 
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-from .car import Car
-from .endpoints import Endpoints
+from .database import init_db
+from .endpoints import Endpoint
 from .endpointhandler import EndpointHandler
-from .database import db_session, init_db
 
 class CarAPI(Flask): 
     """ Main Class of the API inhering from Flask, to structure the project in  
@@ -20,11 +17,10 @@ class CarAPI(Flask):
         super().__init__(name)
         self.configs(**configs)
         init_db()
-        
-        self.add_endpoint('/cars/', 'get_cars', Endpoints.get_request, methods=['GET'])
-        self.add_endpoint('/cars/', 'add_car', Endpoints.post_request, methods=['POST'])
-        self.add_endpoint('/cars/', 'update_car', Endpoints.put_request, methods=['PUT'])
-        self.add_endpoint('/cars/', 'delete_car', Endpoints.delete_request, methods=['DELETE'])
+
+        self.add_endpoint('/cars/', 'cars', Endpoint(), methods=[
+            'GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'TRACE', 'OPTIONS','CONNECT','HEAD'
+            ])
 
     def configs(self, **configs) -> None:
         for config, value in configs:
@@ -37,7 +33,7 @@ class CarAPI(Flask):
                         methods:List[str]=['GET'], 
                         *args, 
                         **kwargs
-                     ):
+                     ) -> None:
         """ adds an Endpoint to the API 
         Args:
             uri (str): URI of the Endpoint in the Format /resource/'
@@ -47,10 +43,5 @@ class CarAPI(Flask):
         """
         self.add_url_rule(uri, endpoint_name, EndpointHandler(function), methods=methods, *args, **kwargs)
 
-
-    def teardown_appcontext(self):
-        db_session.remove()
-        super().teardown_appcontext()
-
-    def run(self, **kwargs) -> None:
+    def run(self, **kwargs) -> None: 
         self.run(**kwargs)

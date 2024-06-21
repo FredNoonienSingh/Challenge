@@ -7,7 +7,7 @@ class EndpointHandler():
     """ Wrapper around function that gets invoked by the Endpoint
     """
     def __init__(self, action:Callable) -> None:
-        self.action = action 
+        self.action = action
 
     def __call__(self, *args, **kwargs) -> Response:
         """ calls the function 
