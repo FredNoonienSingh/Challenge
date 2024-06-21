@@ -2,6 +2,12 @@
 
 A RESTful API for managing car models using Python with an object-oriented approach. The API allows users to create, retrieve, update, and delete car models, as well as search and filter car models based on their properties.
 
+<div align="center">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" width="75" heigth="75" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlalchemy/sqlalchemy-original-wordmark.svg" width="75" heigth="75" />
+</div>
+<br>
+
 # Table of contents
 - [Python Car Management Challenge](#python-car-management-challenge)
 - [Table of contents](#table-of-contents)
