@@ -31,18 +31,15 @@ class Endpoint:
         return {'Failure': 'Request not valid'}, 400
     
     @staticmethod
-    def parse_filter(filter_data, operator_map):
-        field, operator_dict = filter_data.items()
-        operator = operator_dict.get('operator')
-        value = operator_dict.get('value')
-        if operator and value:
-            return operator_map.get(operator)(getattr(Car, field), value)
-        else:
-            None
+    def parse_filter(filter_data:dict,field:str):
+        operator_dict:dict = dict(filter_data.items())
+        operator:str = operator_dict.get('operator')
+        value:any = operator_dict.get('value')
+        return operator_map.get(operator)(getattr(Car, field), value)
   
     @staticmethod
     def get_request(data:dict) -> dict:
-        """_summary_
+        """handles get requests 
 
         Args:
             data (dict): payload of validated request
@@ -62,12 +59,10 @@ class Endpoint:
             criteria:dict = data.get('filters', {})
 
             query = db_session.query(Car)
+            
             for field, filter_data in criteria.items():
-                filter_func = Endpoint.parse_filter(filter_data, operator_map)
-                if filter_func:
-                    query = query.filter(filter_func)
-                else:
-                    return {'Failure': 'Filter Operator in request not valid'},422
+                filter_func = Endpoint.parse_filter(filter_data, field)
+                query = query.filter(filter_func)
 
             cars:dict = query.offset(offset).limit(limit)
             return {'Success':f'returned {limit} values from {offset}', 'Data':[car.as_dict() for car in cars]},206
