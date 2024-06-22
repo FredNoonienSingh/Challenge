@@ -3,11 +3,11 @@
 # Project:   Python Car Management RESTful API Coding Challenge
 
 from flask import request   # imported for typing
+from utils.validator import Validator
+from utils.operator_map import operator_map
 
 from .car import Car
 from .database import db_session
-from utils.validator import Validator
-from utils.operator_map import operator_map
 
 
 class Endpoint:

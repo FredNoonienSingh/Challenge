@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base
 
-from .car import Car
 
 load_dotenv()
 db_path = os.environ.get('SQLALCHEMY_DATABASE_URI')
@@ -19,4 +18,5 @@ def init_db() -> None:
     """
     initializes the db
     """
+    from .car import Car
     Base.metadata.create_all(bind=engine)
