@@ -35,7 +35,7 @@ class Car(Base):
         self.make = make 
         self.year = year
         self.color = color
-        self.price = price 
+        self.price = price
 
     def update(self, model:str, make:str, year:int, color:str, price:float) -> None:
         """ Overwrites Fields of the object with parsed values

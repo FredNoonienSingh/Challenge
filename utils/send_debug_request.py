@@ -8,7 +8,7 @@ import time
 api_url:dict = "http://127.0.0.1:8080/cars/"  # Replace with the actual API endpoint URL
 
 get_single:dict = {
-    'id': 57
+    'id': 1
 }
 
 get_data:dict = {
@@ -16,13 +16,11 @@ get_data:dict = {
     "limit": 12, 
     "filter":{
         "year": {
-            "gt": 2000
-            },
-        "name": {
-            "color": "red"
+            "operator": "gt", 
+            "value": 2000
+            }
         }
     }
-}
 
 post_data:dict = {
     "model": "R8", 
@@ -49,10 +47,10 @@ headers:dict = {'Content-Type': 'application/json'}
 methods:dict = (
     (requests.get, get_single), 
     (requests.get, get_data), 
-    (requests.post, post_data), 
-    (requests.put, update_data),
-    (requests.delete, del_data), 
-    (requests.patch, update_data)
+    #(requests.post, post_data), 
+    #(requests.put, update_data),
+    #(requests.delete, del_data), 
+    #(requests.patch, update_data)
            )
 
 def test():

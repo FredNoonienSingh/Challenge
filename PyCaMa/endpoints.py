@@ -42,7 +42,7 @@ class Endpoint:
   
     @staticmethod
     def get_request(data:dict) -> dict:
-        """_summary_
+        """handles get requests 
 
         Args:
             data (dict): payload of validated request
