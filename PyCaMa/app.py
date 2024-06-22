@@ -18,6 +18,7 @@ class CarAPI(Flask):
         self.configs(**configs)
         init_db()
 
+        # The endpoint object handles every route to the resource /cars/
         self.add_endpoint('/cars/', 'cars', Endpoint(), methods=[
             'GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'TRACE', 'OPTIONS','CONNECT','HEAD'
             ])

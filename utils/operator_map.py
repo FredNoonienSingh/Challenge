@@ -8,4 +8,3 @@ operator_map = {
     'like': lambda field, value: field.like(f'%{value}%'),  # For partial string matches
     'in': lambda field, value: field.in_(value),  # For filtering based on a list of values
 }
-

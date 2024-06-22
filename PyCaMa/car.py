@@ -2,10 +2,12 @@
 # date   :   16th june 2024 
 # Project:   Python Car Management RESTful API Coding Challenge
 
-from datetime import datetime 
-from sqlalchemy import Column, String, DateTime, Numeric, Integer
 
 from .database import Base
+
+from datetime import datetime
+from sqlalchemy import Column, String, DateTime, Numeric, Integer
+
 
 class Car(Base):
     """ class containing the representation of a Car in the DB

@@ -2,7 +2,7 @@
 # date   :   15th june 2024 
 # Project:   Python Car Management RESTful API Coding Challenge
 
-from flask import request
+from flask import request   # imported for typing 
 
 from .car import Car
 from .database import db_session

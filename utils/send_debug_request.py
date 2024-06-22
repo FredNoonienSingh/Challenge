@@ -2,6 +2,8 @@
 # date   :   15th june 2024 
 # Project:   Python Car Management RESTful API Coding Challenge
 
+# Script used for debugging the Validator and Endpoint objects 
+
 import requests
 import time
 
@@ -49,12 +51,12 @@ update_data:dict = {
 
 headers:dict = {'Content-Type': 'application/json'}
 methods:dict = (
-    #(requests.get, get_single), 
+    (requests.get, get_single), 
     (requests.get, get_data), 
-    #(requests.post, post_data), 
-    #(requests.put, update_data),
-    #(requests.delete, del_data), 
-    #(requests.patch, update_data)
+    (requests.post, post_data), 
+    (requests.put, update_data),
+    (requests.delete, del_data), 
+    (requests.patch, update_data)
            )
 
 def test():
@@ -66,6 +68,5 @@ def test():
         except Exception as e: 
             print(e)
 
-for i in range(12):
-    print(f"test run {i+1}")
+if __name__ == "__main__":
     test()

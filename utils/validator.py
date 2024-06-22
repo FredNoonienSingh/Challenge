@@ -2,15 +2,16 @@
 # date   :   17th june 2024
 # Project:   Python Car Management RESTful API Coding Challenge
 
-from types import NoneType
+
+from types import NoneType       # to validate requests containing not parsed Values 
+from numbers import Number       # for validating filters  
 from datetime import datetime
-from numbers import Number
+
 from PyCaMa.car import Car
 
 class Validator:
     """ Class holding static Methods to validate Inputs 
-    """
-    
+    """ 
     @staticmethod
     def validate_car(data:dict) -> bool:
         """ Validates that all values are 
@@ -106,6 +107,5 @@ class Validator:
 
             if not isinstance(value, Number):
                 if operator in ['eq', 'gt', 'lt', 'gte', 'lte']:
-                    return False
-            
+                    return False 
         return True 

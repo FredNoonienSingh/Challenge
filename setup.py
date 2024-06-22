@@ -15,7 +15,7 @@ setup(
     long_description=long_description,
     author='Frederic Baumeister',
     author_email='FredBaumeister@Icloud.com',
-    url="http://www.foopackage.example/",
+    url="https://github.com/FredNoonienSingh/Challenge",
     packages=find_packages(), 
     install_requires=['Flask', 'Flask-SQLAlchemy', 'pytest'], #external packages as dependencies
     setup_requires=['pytest-runner', 'flake8'],

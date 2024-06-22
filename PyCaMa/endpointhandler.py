@@ -1,6 +1,6 @@
 
-from collections.abc import Callable     #imported for typing, typing.Callable is deprecated since 3.9
-from werkzeug import Response            # Imported for typing 
+from werkzeug import Response             #Imported for typing 
+from collections.abc import Callable      #imported for typing, typing.Callable is deprecated since 3.9
 from flask import request, make_response
 
 class EndpointHandler():
