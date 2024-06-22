@@ -50,4 +50,6 @@ class CarAPI(Flask):
         self.add_url_rule(uri, endpoint_name, EndpointHandler(function), methods=methods, **kwargs)
 
     def run(self, **kwargs) -> None:
+        """runs the app, get called by 'flask run'
+        """
         self.run(**kwargs)

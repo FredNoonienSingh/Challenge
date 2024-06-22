@@ -2,12 +2,10 @@
 # date   :   16th june 2024
 # Project:   Python Car Management RESTful API Coding Challenge
 
-
-from .database import Base
-
 from datetime import datetime
 from sqlalchemy import Column, String, DateTime, Numeric, Integer
 
+from .database import Base
 
 class Car(Base):
     """ class containing the representation of a Car in the DB
@@ -56,6 +54,11 @@ class Car(Base):
         self.price = price
 
     def as_dict(self) -> dict:
+        """ returns fields of the object as dict
+
+        Returns:
+            dict: fields of the object
+        """
         return {
             'ID': self.id,
             'model': self.model,
@@ -66,4 +69,9 @@ class Car(Base):
         }
 
     def __repr__(self) -> str:
+        """ returns string representing the object 
+
+        Returns:
+            str: string representing the object
+        """
         return f'<Car {self.make}{self.model!r}>'
