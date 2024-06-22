@@ -20,6 +20,7 @@ jobs:
         pip install pylint
         pip install flask 
         pip install Flask-SQLAlchemy
+        pip install requests 
         pip install python-dotenv
     - name: Analysing the code with pylint
       run: |
