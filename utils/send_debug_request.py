@@ -7,7 +7,8 @@
 import time
 import requests
 
-api_url: dict = "http://127.0.0.1:8080/cars/"  # Replace with the actual API endpoint URL
+api_url: dict = "http://127.0.0.1:8080/cars/"  
+# Replace with the actual API endpoint URL
 
 get_single: dict = {
     'id': 1
@@ -37,7 +38,7 @@ post_data: dict = {
 }
 
 del_data: dict = {
-    'id': 52,
+    'id': 5,
 }
 
 update_data: dict = {
@@ -51,14 +52,13 @@ update_data: dict = {
 
 headers: dict = {'Content-Type': 'application/json'}
 methods: dict = (
-    (requests.get, get_single),
-    (requests.get, get_data),
-    (requests.post, post_data),
-    (requests.put, update_data),
+    #(requests.get, get_single),
+    #(requests.get, get_data),
+    #(requests.post, post_data),
+    #(requests.put, update_data),
     (requests.delete, del_data),
-    (requests.patch, update_data)
+    #(requests.patch, update_data)
 )
-
 
 def test():
     """ sends debug requests 
@@ -71,7 +71,6 @@ def test():
             print(response.json())
         except Exception as e:
             print(e)
-
 
 if __name__ == "__main__":
     test()
