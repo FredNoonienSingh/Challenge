@@ -2,13 +2,15 @@
 # date   :   15th june 2024
 # Project:   Python Car Management RESTful API Coding Challenge
 
-from flask import Flask
+from collections.abc import \
+    Callable  # imported for typing, typing.Callable is deprecated since 3.9
 from typing import List
-from collections.abc import Callable  # imported for typing, typing.Callable is deprecated since 3.9
+
+from flask import Flask
 
 from .database import init_db
-from .endpoints import Endpoint
 from .endpointhandler import EndpointHandler
+from .endpoints import Endpoint
 
 
 class CarAPI(Flask):
@@ -26,6 +28,8 @@ class CarAPI(Flask):
         ])
 
     def configs(self, **configs) -> None:
+        """ Sets configs for the CarAPI
+        """
         for config, value in configs:
             self.name.config[config.upper()] = value
 
@@ -33,8 +37,7 @@ class CarAPI(Flask):
                      uri: str,
                      endpoint_name: str,
                      function: Callable,
-                     methods: List[str] = ['GET'],
-                     *args,
+                     methods: List[str],
                      **kwargs
                      ) -> None:
         """ adds an Endpoint to the API 
@@ -42,9 +45,9 @@ class CarAPI(Flask):
             uri (str): URI of the Endpoint in the Format /resource/'
             endpoint_name (str): Name of the Endpoint.
             function (Callable, optional):
-            methods (List[str], optional): List of VERBS. Defaults to ['GET'].
+            methods (List[str], optional): List of VERBS.
         """
-        self.add_url_rule(uri, endpoint_name, EndpointHandler(function), methods=methods, *args, **kwargs)
+        self.add_url_rule(uri, endpoint_name, EndpointHandler(function), methods=methods, **kwargs)
 
     def run(self, **kwargs) -> None:
         self.run(**kwargs)
