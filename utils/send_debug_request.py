@@ -4,8 +4,8 @@
 
 # Script used for debugging the Validator and Endpoint objects
 
-import requests
 import time
+import requests
 
 api_url: dict = "http://127.0.0.1:8080/cars/"  # Replace with the actual API endpoint URL
 
@@ -61,6 +61,9 @@ methods: dict = (
 
 
 def test():
+    """ sends debug requests 
+    """
+    
     for meth in methods:
         time.sleep(0.2)
         response = meth[0](api_url, headers=headers, json=meth[1])

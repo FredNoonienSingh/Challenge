@@ -1,11 +1,13 @@
+# author :   Frederic Baumeister
+# date   :   15th june 2024
+# Project:   Python Car Management RESTful API Coding Challenge
 
 from random import choice
-
 from PyCaMa.car import Car
-from PyCaMa.database import db_session
-
 
 class Utils:
+    """ Class holding utility scripts 
+    """
 
     @staticmethod
     def random_car() -> Car:
