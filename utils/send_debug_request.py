@@ -14,13 +14,17 @@ get_single:dict = {
 get_data:dict = {
     "offset": None,
     "limit": 12, 
-    "filter":{
+    "filters":{
         "year": {
-            "operator": "gt", 
+            "operator": 'lt', 
             "value": 2000
             }
+        },
+        "model": {
+            "operator": 'eq', 
+            "value": '911'
+            }
         }
-    }
 
 post_data:dict = {
     "model": "R8", 
@@ -45,7 +49,7 @@ update_data:dict = {
 
 headers:dict = {'Content-Type': 'application/json'}
 methods:dict = (
-    (requests.get, get_single), 
+    #(requests.get, get_single), 
     (requests.get, get_data), 
     #(requests.post, post_data), 
     #(requests.put, update_data),
@@ -62,8 +66,6 @@ def test():
         except Exception as e: 
             print(e)
 
-i = 0
-while True:
+for i in range(12):
     print(f"test run {i+1}")
-    i+=1
     test()
