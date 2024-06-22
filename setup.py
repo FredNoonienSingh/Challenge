@@ -1,7 +1,7 @@
 # author :   Frederic Baumeister
-# date   :   16th june 2024 
+# date   :   16th june 2024
 # Project:   Python Car Management RESTful API Coding Challenge
-import os 
+import os
 from setuptools import setup, find_packages
 
 with open("README.md", 'r') as f:
@@ -16,9 +16,9 @@ setup(
     author='Frederic Baumeister',
     author_email='FredBaumeister@Icloud.com',
     url="https://github.com/FredNoonienSingh/Challenge",
-    packages=find_packages(), 
-    install_requires=['Flask', 'Flask-SQLAlchemy', 'pytest'], #external packages as dependencies
+    packages=find_packages(),
+    install_requires=['Flask', 'Flask-SQLAlchemy', 'pytest'],  # external packages as dependencies
     setup_requires=['pytest-runner', 'flake8'],
     tests_require=['pytest'],
-    test_suite = 'test'
+    test_suite='test'
 )
