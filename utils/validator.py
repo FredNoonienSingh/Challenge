@@ -4,6 +4,8 @@
 
 from types import NoneType
 from datetime import datetime
+from numbers import Number
+from PyCaMa.car import Car
 
 class Validator:
     """ Class holding static Methods to validate Inputs 
@@ -74,10 +76,6 @@ class Validator:
         Returns:
             bool: False if wrong params are parsed 
         """
-        #expected_keys:set = set(['offset', 'limit', 'filter'])
-        #if not set(data.keys()).issubset(expected_keys):
-         #   print('here')
-          #  return False
         params:tuple = data['offset'], data['limit']
         for el in params:
             if not isinstance(el, int) and not isinstance(el, NoneType):
@@ -97,21 +95,17 @@ class Validator:
         Returns:
             bool: False if params are not valid 
         """
-        if [x for x in list(data.keys()) if x not in ['make', 'model', 'year', 'color', 'price']]:
-            return False
-        if 'make' in list(data.keys()):
-            if not isinstance(data['make'], str):
+        for field, filter_data in data.items():
+            
+            if field not in Car.__dict__.keys():
                 return False
-        if 'model' in list(data.keys()):
-            if not isinstance(data['model'], str):
-                return False
-        if 'year' in list(data.keys()):
-            if not isinstance(data['year'], int):
-                return False
-        if 'color' in list(data.keys()):
-            if not isinstance(data['color'], str):
-                return False
-        if 'price' in list(data.keys()):
-            if not isinstance(data['price'], float) or not isinstance(data['price'], int):
-                return False
-        return True
+            
+            operator_dict:dict = dict(filter_data.items())
+            operator:str = operator_dict.get('operator')
+            value:any = operator_dict.get('value')
+
+            if not isinstance(value, Number):
+                if operator in ['eq', 'gt', 'lt', 'gte', 'lte']:
+                    return False
+            
+        return True 
