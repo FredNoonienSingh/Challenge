@@ -16,6 +16,11 @@ class Endpoint:
     """
 
     def __call__(self) -> dict:
+        """ makes the object itself callable 
+
+        Returns:
+            dict: response to Endpointhandler 
+        """
         # Used this implementation to catch not implemented methods and return an 501 Error
         if request.is_json:
             json_data: dict = request.get_json()
@@ -34,6 +39,15 @@ class Endpoint:
 
     @staticmethod
     def parse_filter(filter_data: dict, field: str):
+        """ translates the filter in request to a executable function 
+
+        Args:
+            filter_data (dict): dict containing 
+            field (str): field to be filters 
+
+        Returns:
+            _type_: executable filter 
+        """
         operator_dict: dict = dict(filter_data.items())
         operator: str = operator_dict.get('operator')
         value: any = operator_dict.get('value')
@@ -77,6 +91,14 @@ class Endpoint:
 
     @staticmethod
     def post_request(data: dict) -> dict:
+        """ handles a post request 
+
+        Args:
+            data (dict): request body 
+
+        Returns:
+            dict: response 
+        """
         if not Validator.validate_car(data):
             return {'Failure': 'Request not valid'}, 422
         make, model, year, color, price = data['make'], data['model'], data['year'], data['color'], data['price']
@@ -86,6 +108,14 @@ class Endpoint:
 
     @staticmethod
     def put_request(data: dict) -> dict:
+        """ handles a put request 
+
+        Args:
+            data (dict): request body 
+
+        Returns:
+            dict: response 
+        """
         if not Validator.validate_car(data):
             return {'Failure': 'Request not valid'}, 422
         make, model, year, color, price = data['make'], data['model'], data['year'], data['color'], data['price']
@@ -98,6 +128,14 @@ class Endpoint:
 
     @staticmethod
     def delete_request(data: dict) -> dict:
+        """ handles a delete request 
+
+        Args:
+            data (dict): request body 
+
+        Returns:
+            dict: response 
+        """
         Id: int = data['id']
         if not Validator.validate_id(Id):
             return {'Failure': 'Request not valid'}, 422

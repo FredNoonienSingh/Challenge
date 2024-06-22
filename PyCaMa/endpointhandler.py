@@ -1,5 +1,4 @@
 
-from werkzeug import Response  # Imported for typing
 from collections.abc import Callable  # imported for typing, typing.Callable is deprecated since 3.9
 from flask import request, make_response
 
@@ -11,7 +10,7 @@ class EndpointHandler():
     def __init__(self, action: Callable) -> None:
         self.action = action
 
-    def __call__(self, *args, **kwargs) -> Response:
+    def __call__(self, *args, **kwargs):
         """ calls the function 
 
         Returns:
