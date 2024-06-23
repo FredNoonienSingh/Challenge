@@ -116,12 +116,13 @@ class Endpoint:
         Returns:
             dict: response 
         """
-        if not Validator.validate_car(data):
+        if not Validator.validate_put_data(data['data']):
             return {'Failure': 'Request not valid'}, 422
-        make, model, year, color, price = data['make'], data['model'], data['year'], data['color'], data['price']
+        if 'id' in data['data'].keys():
+            return  {'Failure': 'overwriting id is not allowed'}, 405
         row: dict = db_session.query(Car).filter(Car.id == data['id']).first()
         if row:
-            row.update(make=make, model=model, year=year, color=color, price=price)
+            row.update(data['data'])
             db_session.commit()
             return {'Success': 'Resource updated'}, 200
         return {"Failure": f"id {data['id']} is not in Resource"}, 404

@@ -115,3 +115,17 @@ class Validator:
                 if operator in ['eq', 'gt', 'lt', 'gte', 'lte']:
                     return False
         return True
+
+    @staticmethod
+    def validate_put_data(data:dict) -> bool:
+        """ Checks if all keys in data are valid fields of the car class
+
+        Args:
+            data (dict): data from put request 
+
+        Returns:
+            bool: returns False is not valid 
+        """
+        if [key for key in data.keys() if key not in Car.__dict__.keys()]:
+            return False
+        return True

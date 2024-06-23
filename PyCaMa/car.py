@@ -37,21 +37,15 @@ class Car(Base):
         self.color = color
         self.price = price
 
-    def update(self, model: str, make: str, year: int, color: str, price: float) -> None:
+    def update(self, data:dict) -> None:
         """ Overwrites Fields of the object with parsed values
 
         Args:
-            model (str): Model of the Car
-            make (str): Make of the Car
-            year (int): year in which the car was build
-            color (str): color of the car
-            price (float): price of the car
+            data (dict): dictionary containing the field and new data
         """
-        self.model = model
-        self.make = make
-        self.year = year
-        self.color = color
-        self.price = price
+        for key, value in data.items():
+            if hasattr(self, key):
+                setattr(self, key, value)
 
     def as_dict(self) -> dict:
         """ returns fields of the object as dict
