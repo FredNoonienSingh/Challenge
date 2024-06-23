@@ -11,7 +11,7 @@ api_url: dict = "http://127.0.0.1:8080/cars/"
 # Replace with the actual API endpoint URL
 
 get_single: dict = {
-    'id': 1
+    'id': 29
 }
 
 get_data: dict = {
@@ -42,21 +42,21 @@ del_data: dict = {
 }
 
 update_data: dict = {
-    'id': 129,
-    'model': "updated",
-    'make': "updated",
-    'color': "updated",
-    'year': 1999,
-    'price': 12322.32
-}
+    'id': 29,
+        'data':{
+            'id': 1233,
+            'model': "updated",
+            'make': "911",
+        }
+    }
 
 headers: dict = {'Content-Type': 'application/json'}
 methods: dict = (
-    #(requests.get, get_single),
-    #(requests.get, get_data),
+    (requests.get, get_single),
+    (requests.get, get_data),
     #(requests.post, post_data),
-    #(requests.put, update_data),
-    (requests.delete, del_data),
+    (requests.put, update_data),
+    #(requests.delete, del_data),
     #(requests.patch, update_data)
 )
 

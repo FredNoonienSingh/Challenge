@@ -2,10 +2,7 @@
 # date   :   15th june 2024
 # Project:   Python Car Management RESTful API Coding Challenge
 
-from random import choice
-
 from PyCaMa.car import Car
-from PyCaMa.common import db
 from PyCaMa.database import db_session
 from utils.util import Utils
 
