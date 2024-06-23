@@ -264,15 +264,18 @@ Returns a string representation of the car, it is usually a standard method but 
 ```js
   {'Data': 
   [
-    {'ID': 3, 'color': 'silver', 'make': 'Porsche', 'model': '911', 'price': '2849.00', 'year': '1946'}, {'ID': 5, 'color': 'blue', 'make': 'VW', 'model': 'Astra', 'price': '2448.00', 'year': '1913'}, 
-    {'ID': 8, 'color': 'black', 'make': 'Mercedes', 'model': 'Astra', 'price': '1397.00', 'year': '1904'}, {'ID': 9, 'color': 'blue', 'make': 'Mercedes', 'model': 'A3', 'price': '1379.00', 'year': '1910'}, 
+    {'ID': 3, 'color': 'silver', 'make': 'Porsche', 'model': '911', 'price': '2849.00', 'year': '1946'},
+    {'ID': 5, 'color': 'blue', 'make': 'VW', 'model': 'Astra', 'price': '2448.00', 'year': '1913'}, 
+    {'ID': 8, 'color': 'black', 'make': 'Mercedes', 'model': 'Astra', 'price': '1397.00', 'year': '1904'},
+    {'ID': 9, 'color': 'blue', 'make': 'Mercedes', 'model': 'A3', 'price': '1379.00', 'year': '1910'}, 
     {'ID': 10, 'color': 'blue', 'make': 'Porsche', 'model': 'R8', 'price': '2424.00', 'year': '1952'}, 
     {'ID': 11, 'color': 'black', 'make': 'BMW', 'model': 'R8', 'price': '2317.00', 'year': '1952'}, 
     {'ID': 12, 'color': 'silver', 'make': 'BMW', 'model': '911', 'price': '2868.00', 'year': '1919'}, 
     {'ID': 13, 'color': 'white', 'make': 'Audi', 'model': 'R8', 'price': '2907.00', 'year': '1991'}, 
     {'ID': 14, 'color': 'red', 'make': 'BMW', 'model': 'Astra', 'price': '1819.00', 'year': '1961'}, 
     {'ID': 15, 'color': 'blue', 'make': 'VW', 'model': 'A3', 'price': '1380.00', 'year': '1991'}, 
-    {'ID': 16, 'color': 'silver', 'make': 'Porsche', 'model': 'Astra', 'price': '2233.00', 'year': '1961'}, {'ID': 17, 'color': 'silver', 'make': 'Mercedes', 'model': 'Astra', 'price': '1048.00', 'year': '1919'}
+    {'ID': 16, 'color': 'silver', 'make': 'Porsche', 'model': 'Astra', 'price': '2233.00', 'year': '1961'},
+    {'ID': 17, 'color': 'silver', 'make': 'Mercedes', 'model': 'Astra', 'price': '1048.00', 'year': '1919'}
   ], 'Success': 'returned 12 values from 0'}
 ```
 
