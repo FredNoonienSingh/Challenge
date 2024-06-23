@@ -1,4 +1,5 @@
 # Python Car Management Challenge
+[![Pylint](https://github.com/FredNoonienSingh/Challenge/actions/workflows/pylint.yml/badge.svg)](https://github.com/FredNoonienSingh/Challenge/actions/workflows/pylint.yml)
 
 A RESTful API for managing car models using Python with an object-oriented approach. The API allows users to create, retrieve, update, and delete car models, as well as search and filter car models based on their properties.
 
