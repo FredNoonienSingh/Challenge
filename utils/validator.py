@@ -65,7 +65,6 @@ class Validator:
             bool: False if id is not an Integer or smaller than 0
         """
         if not Id > 0 or not isinstance(Id, int):
-            print("sd")
             return False
         return True
 
@@ -104,6 +103,8 @@ class Validator:
         for field, filter_data in data.items():
 
             if field not in Car.__dict__.keys():
+                # no dear linter, iterating over the dict would be less efficient than 
+                # a 'in' check, therefore it will stay like it is 
                 return False
 
             operator_dict: dict = dict(filter_data.items())
