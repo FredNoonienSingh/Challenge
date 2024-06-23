@@ -44,7 +44,6 @@ del_data: dict = {
 update_data: dict = {
     'id': 29,
         'data':{
-            'id': 1233,
             'model': "updated",
             'make': "911",
         }
@@ -54,10 +53,10 @@ headers: dict = {'Content-Type': 'application/json'}
 methods: dict = (
     (requests.get, get_single),
     (requests.get, get_data),
-    #(requests.post, post_data),
+    (requests.post, post_data),
     (requests.put, update_data),
-    #(requests.delete, del_data),
-    #(requests.patch, update_data)
+    (requests.delete, del_data),
+    (requests.patch, update_data)
 )
 
 def test():
@@ -66,10 +65,11 @@ def test():
     
     for meth in methods:
         time.sleep(0.2)
-        response = meth[0](api_url, headers=headers, json=meth[1])
         try:
+            response = meth[0](api_url, headers=headers, json=meth[1], timeout=10)
             print(response.json())
-        except Exception as e:
+            print("\n\n")
+        except requests.exceptions.RequestException as e:
             print(e)
 
 if __name__ == "__main__":
