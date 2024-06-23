@@ -34,18 +34,23 @@ A RESTful API for managing car models using Python with an object-oriented appro
       - [To retrieve a single object](#to-retrieve-a-single-object)
       - [**Example Response**](#example-response)
       - [To retrieve multiple objects](#to-retrieve-multiple-objects)
+      - [Possible responses](#possible-responses)
       - [**Example Response**](#example-response-1)
     - [__POST__](#post)
       - [Add a new element to the database](#add-a-new-element-to-the-database)
       - [**Example Response**](#example-response-2)
+      - [Possible responses](#possible-responses-1)
     - [__PUT__](#put)
       - [Update an element to the database](#update-an-element-to-the-database)
       - [**Example Response**](#example-response-3)
+      - [Possible responses](#possible-responses-2)
     - [__DELETE__](#delete)
       - [Delete an element from the database](#delete-an-element-from-the-database)
       - [**Example Response**](#example-response-4)
+      - [Possible responses](#possible-responses-3)
     - [Other Methods](#other-methods)
       - [**Example Response**](#example-response-5)
+      - [Possible responses](#possible-responses-4)
   - [Design Decision](#design-decision)
     - [Overall Structure](#overall-structure)
     - [The Endpoints Object](#the-endpoints-object)
@@ -218,7 +223,18 @@ Returns a string representation of the car, it is usually a standard method but 
 #### **Example Response**
 
 ```js
-  {'Data': [{'ID': 57, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2029'}], 'Success': 'returned single row'}
+    {'Data': 
+    [ 
+      {
+        'ID': 29, 
+        'color': 'updated', 
+        'make': '911', 
+        'model': 'updated', 
+        'price': '12322.32', 
+        'year': '1999'
+        }
+      ], 
+      'Success': 'returned single row'}
 ```
   
 #### To retrieve multiple objects
@@ -237,25 +253,27 @@ Returns a string representation of the car, it is usually a standard method but 
 }
 ```
 
+#### Possible responses
+
+- 200
+- 404
+- 422
+
 #### **Example Response**
 
 ```js
-{'Data': 
-    [
-        {'ID': 498, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 499, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 500, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 501, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 502, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 503, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 504, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 505, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 506, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 507, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 508, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}, 
-        {'ID': 509, 'color': 'red', 'make': 'Audi', 'model': 'R8', 'price': '10000.23', 'year': '2024'}
-    ], 
-    'Success': 'returned 12 values from 0'}
+  {'Data': 
+  [
+    {'ID': 3, 'color': 'silver', 'make': 'Porsche', 'model': '911', 'price': '2849.00', 'year': '1946'}, {'ID': 5, 'color': 'blue', 'make': 'VW', 'model': 'Astra', 'price': '2448.00', 'year': '1913'}, 
+    {'ID': 8, 'color': 'black', 'make': 'Mercedes', 'model': 'Astra', 'price': '1397.00', 'year': '1904'}, {'ID': 9, 'color': 'blue', 'make': 'Mercedes', 'model': 'A3', 'price': '1379.00', 'year': '1910'}, 
+    {'ID': 10, 'color': 'blue', 'make': 'Porsche', 'model': 'R8', 'price': '2424.00', 'year': '1952'}, 
+    {'ID': 11, 'color': 'black', 'make': 'BMW', 'model': 'R8', 'price': '2317.00', 'year': '1952'}, 
+    {'ID': 12, 'color': 'silver', 'make': 'BMW', 'model': '911', 'price': '2868.00', 'year': '1919'}, 
+    {'ID': 13, 'color': 'white', 'make': 'Audi', 'model': 'R8', 'price': '2907.00', 'year': '1991'}, 
+    {'ID': 14, 'color': 'red', 'make': 'BMW', 'model': 'Astra', 'price': '1819.00', 'year': '1961'}, 
+    {'ID': 15, 'color': 'blue', 'make': 'VW', 'model': 'A3', 'price': '1380.00', 'year': '1991'}, 
+    {'ID': 16, 'color': 'silver', 'make': 'Porsche', 'model': 'Astra', 'price': '2233.00', 'year': '1961'}, {'ID': 17, 'color': 'silver', 'make': 'Mercedes', 'model': 'Astra', 'price': '1048.00', 'year': '1919'}
+  ], 'Success': 'returned 12 values from 0'}
 ```
 
 ### __POST__
@@ -278,26 +296,41 @@ Returns a string representation of the car, it is usually a standard method but 
     {'Success': 'Resource created'}
 ```
 
+#### Possible responses
+
+- 201
+- 422
+
 ### __PUT__
 
 #### Update an element to the database
 
 ```js
-{
-    "id": Integer,
-    "model":String, 
-    "make": String, 
-    "color": String,
-    "year": Integer, 
-    "price": Float
-}
+ {
+    'id': 29,
+    'data':{
+        "model": String, 
+        "make": String, 
+        "year": Integer,
+        "color": String, 
+        "price": Float
+        }
+    }
 ```
+
 
 #### **Example Response**
 
 ```js
     {'Success': 'Resource updated'}
 ```
+
+#### Possible responses
+
+- 200
+- 404
+- 405
+- 422
 
 ### __DELETE__
 
@@ -315,6 +348,12 @@ Returns a string representation of the car, it is usually a standard method but 
     {'Failure': 'id 52 is not in Resource'}
 ```
 
+#### Possible responses
+
+- 204
+- 404
+- 422
+
 ### Other Methods
 
 There are only the four basic `HTTP` Verbs implemented, use of any other verb such as `HEAD`, `PATCH` or similar will result in an `501` Error.
@@ -325,6 +364,10 @@ There are only the four basic `HTTP` Verbs implemented, use of any other verb su
 {'Failure': 'Method not Implemented'}
 ```
 
+#### Possible responses
+
+- 501
+
 ## Design Decision
 
 One big drawback of being self-taught is that there are some conventions that one is not necessarily aware of, therefore i have to assume that i broke conventions in this project more then once. In the case that i would be hired for the position I would familiarize myself better with the relevant conventions.
@@ -332,10 +375,16 @@ I commented on a few places within the code why i made certain choices, never th
 
 ### Overall Structure
 
-Inspiration for the Structure of the App and the Endpoint object was the way modern telephone systems work, calls need to be switched between different endpoints. Assuming that the callers don't not need to be connect to a specific end, just to a resource, like for as example in a call center.
+Inspiration for the Structure of the App and the Endpoint object was the way modern telephone systems work, calls need to be switched between different endpoints. Assuming that the callers don't not need to be connect to a specific end, just to a 'function', like for as example in a call center.
 
-To visualize how that is relevant to our API, we think about our endpoints like `/get/cars/` as Agents and our Endpoint class a an entire Floor of the Call Center. A call would come in through a so called trunk before it moves through a switch to an extension that handles the before specified problem of the Customer.
+To visualize how that is relevant to our API, we think about our endpoints like `/get/cars/` as Agents and our Endpoints class a trunk connecting calls. A call would come in through the trunk before it moves through a switch to an extension that handles the before specified problem of the Customer. If we now think about resources on the database like departments in our center, it becomes apparent, that it would be wise to layout the center in a way that each department is served by its own trunk and switch.
+Similarly to this Idea is the App layed out, each resource gets its own Endpoints object containing a switch.
+Because there is only on resource handled in the App, i decided against building a parent class and wrote an implementation that is specific to the resource at hand. If the need to handle multiple resources would arise, it would be possible to abstract the Endpoint class further so that it can be used as a parent class for resource specific Endpoints Objects to inherit from.
 
 ### The Endpoints Object
 
+To Implement the Trunk/switch idea i wrote a \_\_call\_\_ () method containing a switch case, which also allowed me to return a `501`Error if needed.The switch case moves requests to a `staticmethod` that handles the request, after the request got validated by the [Validator](#the-validator-object)
+
 ### The Validator Object
+
+The Validator moves trough the requirements of the method that is validating and returns `False` when a requirement is not met or `True` if none of the checks failed.
