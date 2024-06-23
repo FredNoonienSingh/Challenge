@@ -65,6 +65,7 @@ class Validator:
             bool: False if id is not an Integer or smaller than 0
         """
         if not Id > 0 or not isinstance(Id, int):
+            print("sd")
             return False
         return True
 
@@ -78,7 +79,10 @@ class Validator:
         Returns:
             bool: False if wrong params are parsed 
         """
-        params: tuple = data['offset'], data['limit']
+        try:
+            params: tuple = data['offset'], data['limit']
+        except KeyError:
+            return False
         for el in params:
             if not isinstance(el, int) and not isinstance(el, NoneType):
                 return False
