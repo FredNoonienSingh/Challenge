@@ -7,7 +7,6 @@
     The API allows users to create, retrieve, update, and delete car models, 
     as well as search and filter car models based on their properties.
 """
-
 from .app import CarAPI
 
 def create_app() -> CarAPI:

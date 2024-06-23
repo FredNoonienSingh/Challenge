@@ -19,7 +19,7 @@ class TestEndpoints(unittest.TestCase):
             ({"filter": {"key1": {"gt": 2000}}}, 422),
             ({'id': 1},200)
         ]
-        for element in test_data: 
+        for element in test_data:
             self.assertEqual(Endpoint.get_request(element[0])[1],element[1])
 
     def test_post_request(self):
@@ -45,7 +45,7 @@ class TestEndpoints(unittest.TestCase):
     def test_delete_request(self):
         """tests delete request 
         """
-        # Will not test a positive example 
+        # Will not test a positive example
         test_data: list = [
             ({"filter": {"key1": {"gt": 2000}}}, 422)
             ]
