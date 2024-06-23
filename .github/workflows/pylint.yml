@@ -24,4 +24,4 @@ jobs:
         pip install python-dotenv
     - name: Analysing the code with pylint
       run: |
-        pylint --path ./src --threshold 7.5
+        pylint $(git ls-files '*.py') --fail-under 7.5
