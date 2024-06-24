@@ -232,9 +232,9 @@ Returns a string representation of the car, it is usually a standard method but 
     [ 
       {
         'ID': 29, 
-        'color': 'updated', 
-        'make': '911', 
-        'model': 'updated', 
+        'color': 'red', 
+        'make': 'Porsche', 
+        'model': '911', 
         'price': '12322.32', 
         'year': '1999'
         }
@@ -246,14 +246,17 @@ Returns a string representation of the car, it is usually a standard method but 
 
 ```js
 {
-    "offset": Integer,
-    "limit": Integer, 
-    "filter":{
-        "model":String, 
-        "make": String, 
-        "color": String,
-        "year": Integer, 
-        "price": Float
+    "offset": None,
+    "limit": 12,
+    "filters": {
+        "year": {
+            "operator": 'lt',
+            "value": 2000
+        }
+    },
+    "model": {
+        "operator": 'eq',
+        "value": '911'
     }
 }
 ```
