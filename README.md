@@ -113,6 +113,11 @@ After this we can start the app by running
 flask run 
 ```
 
+To verify everything is running correctly
+```py
+python -m unittest discover -v
+```
+
 ### Windows
 
 Follow this [Guide](https://wiki.archlinux.org/title/installation_guide) and return after you fished the process, an easier but more costly alternative solution can be found [here](https://www.apple.com/de/macbook-pro/).
