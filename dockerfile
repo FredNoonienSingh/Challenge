@@ -8,6 +8,5 @@ RUN touch database.db
 EXPOSE 8080
 
 RUN useradd app
-USER app
 
-CMD [flask run]
+CMD flask run 
