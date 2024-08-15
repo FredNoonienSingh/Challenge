@@ -17,7 +17,7 @@ setup(
     author_email='FredBaumeister@Icloud.com',
     url="https://github.com/FredNoonienSingh/Challenge",
     packages=find_packages(),
-    install_requires=['Flask', 'Flask-SQLAlchemy', 'pytest'],  # external packages as dependencies
+    install_requires=['Flask', 'Flask-SQLAlchemy', 'pytest', 'python-dotenv'],  # external packages as dependencies
     setup_requires=['pytest-runner', 'flake8'],
     tests_require=['pytest'],
     test_suite='tests'
